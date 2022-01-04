@@ -1,0 +1,26 @@
+body {
+    background-color: black;
+    color: rgb(194, 238, 127);
+    font-family: monospace; 
+}
+
+.header {
+    font-size: 80px;
+    text-align: center; 
+}
+
+#startContainer {
+    text-align: center;
+}
+
+#startBtn {
+    background-color:rgb(194, 238, 127);
+    color: black;
+    border: 10px 10px 10px 10px;
+    border-color: greenyellow;
+    width: 120;
+    height: 60px;
+    font-size: 30px;
+    font-family: monospace;
+    font-weight: bold;
+}
