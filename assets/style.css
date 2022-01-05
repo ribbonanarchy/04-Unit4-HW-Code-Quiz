@@ -1,26 +1,72 @@
+:root {
+    --lightgreen: rgb(194, 238, 127);
+    --aliengreen: rgb(153, 240, 24);
+    --teal: rgb(0, 194, 201);
+    --darkteal: rgb(0, 146, 139);
+    --purple: rgb(223, 142, 255);
+    --eggplant: rgb(132, 0, 255);
+    --ash: rgb(40, 41, 40);
+}
+
 body {
-    background-color: black;
-    color: rgb(194, 238, 127);
+    background-color: var(--ash);
+    color: var(--lightgreen);
     font-family: monospace; 
 }
 
 .header {
     font-size: 80px;
     text-align: center; 
+    color: var(--purple);
 }
 
-#startContainer {
-    text-align: center;
+.question-card {
+    background-color: var(--purple);
+    color: var(--ash);
+    border: 20px 20px 20px 20px;
+    border: solid;
+    border-color: var(--eggplant);
+    width: 50%;
+    font-size: 15px;
+    margin: 100px;
 }
 
-#startBtn {
-    background-color:rgb(194, 238, 127);
-    color: black;
+#start-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+#question-container {
+    display: flex;
+    justify-content: center;
+}
+
+#start-button {
+    background-color: var(--lightgreen);
+    color: var(--ash);
     border: 10px 10px 10px 10px;
-    border-color: greenyellow;
-    width: 120;
-    height: 60px;
+    border-color: var(--aliengreen);
+    width: 120px;
+    height: 80px;
     font-size: 30px;
     font-family: monospace;
     font-weight: bold;
+}
+
+#timer-card {
+    background-color: var(--teal);
+    color: var(--ash);
+    border: 10px 10px 10px 10px;
+    border: solid;
+    border-color: var(--darkteal);
+    width: 200px;
+    height: 80px;
+    font-size: 20px;
+}
+
+#timer-count {
+    font-size: 40px;
+    text-align: center;
+    font-weight: 600;
 }
