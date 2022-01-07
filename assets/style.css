@@ -17,7 +17,7 @@ body {
 .header {
     font-size: 80px;
     text-align: center; 
-    color: var(--purple);
+    color: var(--eggplant);
 }
 
 .question-card {
@@ -29,6 +29,15 @@ body {
     width: 50%;
     font-size: 15px;
     margin: 100px;
+}
+
+.answer-button {
+    display: block;
+    padding: 6px;
+    margin: 10px;
+    font-family: monospace;
+    background-color: var(--eggplant);
+    color: white;
 }
 
 #start-container {
