@@ -1,15 +1,33 @@
 var startButton = document.querySelector("#start-button");
 var timerElement = document.querySelector("#timer-count");
 var questionElement = document.querySelector(".question-card");
-var ans1Element = document.querySelector("#a1");
-var ans2Element = document.querySelector("#a2");
-var ans3Element = document.querySelector("#a3");
-var ans4Element = document.querySelector("#a4");
+var answerList = $("#answer-list");
 var a1, a2, a3, a4;
+var buttonClicked;
 
-//Q&A arrays
-var questionArray = ["Which tag do we use in HTML for Javascript code/links?", "Which JavaScript method is used to write on browser's console?", "In JavaScript, single line comment begins with what?", "Which property is used to get the length of a string in JavaScript?"];
-var answerArray = [["<script>...</script>", "<div>...</div>", "<body>...</body>", "<p>...</p>"], ["console.write()", "console.output()", "console.log()", "console.writeHTML()"], ["#", "//", "/*", "%"], ["len", "strlen", "stringlength", "length"]];
+//Q&A array
+var questionsArray = [
+    {
+        question: "Which tag do we use in HTML for Javascript code/links?", 
+        options: ["<script>...</script>", "<div>...</div>", "<body>...</body>", "<p>...</p>"],
+        answer: "<script>...</script>"
+    }, 
+    {
+        question: "Which JavaScript method is used to write on browser's console?",
+        options: ["console.write()", "console.output()", "console.log()", "console.writeHTML()"],
+        answer: "console.log()"
+    },
+    {
+        question: "In JavaScript, single line comment begins with what?",
+        options: ["#", "//", "/*", "%"],
+        answer: "//"
+    },
+    {
+        question: "Which property is used to get the length of a string in JavaScript?",
+        options: ["len", "strlen", "stringlength", "length"],
+        answer: "length"
+    }
+];
 
 //Score variables
 var currentScore = 0;
@@ -24,27 +42,15 @@ function startQuiz() {
     startTimer();
     startButton.disabled = true;
     
-    questionElement.textContent = questionArray[0];
+    questionElement.textContent = questionsArray[0].question;
 
-    a1 = document.createElement('button');
-    a2 = document.createElement('button');
-    a3 = document.createElement('button');
-    a4 = document.createElement('button');
-
-    a1.textContent = answerArray[0][0];
-    a1.setAttribute("class", "answer-button");
-    a2.textContent = answerArray[0][1];
-    a2.setAttribute("class", "answer-button");
-    a3.textContent = answerArray[0][2];
-    a3.setAttribute("class", "answer-button");
-    a4.textContent = answerArray[0][3];
-    a4.setAttribute("class", "answer-button");
-
-
-    questionElement.append(a1);
-    questionElement.append(a2);
-    questionElement.append(a3);
-    questionElement.append(a4);
+    for(var i=0; i<4; i++) {
+        a1 = document.createElement('button');
+        a1.textContent = questionsArray[0].options[i];
+        a1.setAttribute("class", "answer-button");
+        questionElement.appendChild(a1);
+    }
+    
 }
 
 function startTimer() {
@@ -53,8 +59,16 @@ function startTimer() {
         timerElement.textContent = timerCount; 
         if(timerCount === 0) {
             clearInterval(timer);
+            startButton.disabled = false;
         }
     }, 1000);
 }
 
-startButton.addEventListener("click", startQuiz);
+function answerQ(event) {
+    buttonClicked = event.target;
+    console.log(buttonClicked.textContent);
+    questionElement.innerHTML = '';
+}
+
+startButton.addEventListener('click', startQuiz);
+answerList.on('click', '.answer-button', answerQ);
