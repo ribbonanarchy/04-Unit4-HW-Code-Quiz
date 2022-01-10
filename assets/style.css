@@ -5,6 +5,8 @@
     --darkteal: rgb(0, 146, 139);
     --purple: rgb(223, 142, 255);
     --eggplant: rgb(132, 0, 255);
+    --lightpink: rgb(255, 78, 175);
+    --magenta: rgb(230, 0, 134);
     --ash: rgb(40, 41, 40);
 }
 
@@ -29,6 +31,7 @@ body {
     width: 50%;
     font-size: 15px;
     margin: 100px;
+    margin-top: 50px;
 }
 
 .answer-button {
@@ -49,6 +52,21 @@ body {
 #question-container {
     display: flex;
     justify-content: center;
+}
+
+#score-card {
+    background-color: var(--lightpink);
+    color: var(--ash);
+    border: 10px 10px 10px 10px;
+    border: solid;
+    border-color: var(--magenta);
+    width: 110px;
+    height: 30px;
+    font-size: 20px;
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+    text-align: center;
 }
 
 #start-button {
